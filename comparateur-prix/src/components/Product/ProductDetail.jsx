@@ -1,23 +1,29 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import productService from '../../services/productService';
-
+import productsData from '../../assets/json/products.json'; // Importation des données fictives
+import '../../assets/styles/products.css';
 const ProductDetail = () => {
     const { id } = useParams();
     const [product, setProduct] = useState(null);
 
     useEffect(() => {
-        productService.getProductById(id).then(data => setProduct(data));
+        const foundProduct = productsData.find((prod) => prod.id === parseInt(id));
+        setProduct(foundProduct);
     }, [id]);
 
-    if (!product) return <div>Loading...</div>;
+    if (!product) {
+        return <div>Produit non trouvé</div>;
+    }
 
     return (
-        <div>
-            <h1>{product.name}</h1>
-            <p>Prix: {product.price}€</p>
-            <p>Catégorie: {product.category}</p>
-            <p>Enseigne: {product.store}</p>
+        <div className="product-detail">
+            <img src={product.image} alt={product.name} className="product-image" />
+            <div className="product-info">
+                <h2 className="product-name">{product.name}</h2>
+                <p className="product-price">{product.price} €</p>
+                <p className="product-stock">{product.inStock ? 'En stock' : 'Rupture de stock'}</p>
+                <p className="product-description">{product.description}</p>
+            </div>
         </div>
     );
 }

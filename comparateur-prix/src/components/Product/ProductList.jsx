@@ -1,26 +1,21 @@
-import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import productService from '../../services/productService';
-import productCard from "./ProductCard";
+import React, { useEffect, useState } from 'react';
+import ProductCard from './ProductCard';
+import '../../assets/styles/products.css';
+import productsData from '../../assets/json/products.json'; // Importation des données fictives
+
 const ProductList = () => {
     const [products, setProducts] = useState([]);
 
     useEffect(() => {
-        productService.getAllProducts().then(data => setProducts(data));
+        // Chargement des données fictives
+        setProducts(productsData);
     }, []);
 
     return (
-        <div>
-            <h1>Liste des Produits</h1>
-            <ul>
-                {products.map(product => (
-                    <li key={product.id}>
-                        <Link to={`/products/${product.id}`}>
-                            <productCard product={product} />
-                        </Link>
-                    </li>
-                ))}
-            </ul>
+        <div className="product-list">
+            {products.map(product => (
+                <ProductCard key={product.id} product={product} />
+            ))}
         </div>
     );
 }
