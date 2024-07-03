@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "category" :"Alimentaire",
+    "isBQP" : true,
+    "name": "Produit A",
+    "price": 12.99,
+    "inStock": true,
+    "image": "https://via.placeholder.com/150",
+    "description": "Description du Produit A"
+  },
+  {
+    "id": 2,
+    "category" : "Beauté & Hygiène",
+    "isBQP" :  false,
+    "name": "Produit B",
+    "price": 8.99,
+    "inStock": false,
+    "image": "https://via.placeholder.com/150",
+    "description": "Description du Produit B"
+  },
+  {
+    "id": 3,
+    "category" : "Alimentaire",
+    "isBQP" :  true,
+    "name": "Produit C",
+    "price": 15.49,
+    "inStock": true,
+    "image": "https://via.placeholder.com/150",
+    "description": "Description du Produit C"
+  }
+]
