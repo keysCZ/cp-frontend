@@ -18,10 +18,6 @@ const CLCV = () => {
         </FormGroup>
         <Button type="submit">Se connecter</Button>
       </LoginForm>
-      <Links>
-        <Link href="#">Mot de passe oublié</Link>
-        <Link href="#">S'inscrire</Link>
-      </Links>
     </Container>
   );
 };
